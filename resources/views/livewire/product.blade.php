@@ -29,6 +29,7 @@
             </label>
             <div class="w-full sm:w-64">
                 <x-text
+                    wire:model.defer="name"
                     name="name"
                     full-width
                 />
@@ -43,6 +44,7 @@
             </label>
             <div class="w-full sm:w-64">
                 <x-textarea
+                    wire:model.defer="description"
                     name="description"
                     full-width
                 />
@@ -57,6 +59,7 @@
             </label>
             <div class="w-full sm:w-64">
                 <x-text
+                    wire:model.defer="price"
                     name="price"
                     full-width
                 />

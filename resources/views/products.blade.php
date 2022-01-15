@@ -1,6 +1,6 @@
 <x-app-layout>
     <x-slot name="form">
-        <livewire:product />
+        <livewire:product-form />
     </x-slot>
 
     <div
