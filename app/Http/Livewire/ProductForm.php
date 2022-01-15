@@ -32,6 +32,6 @@ class ProductForm extends Component
 
     public function render()
     {
-        return view('livewire.product');
+        return view('livewire.product-form');
     }
 }
