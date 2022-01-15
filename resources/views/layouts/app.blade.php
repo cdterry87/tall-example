@@ -35,7 +35,7 @@
     {{-- end form sidebar --}}
 
     {{-- main content --}}
-    <div class="bg-gray-100 h-screen p-8">
+    <div class="bg-gray-100 h-screen p-8 overflow-y-auto">
         {{ $slot }}
     </div>
     {{-- end main content --}}
