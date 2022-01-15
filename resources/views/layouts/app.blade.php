@@ -26,7 +26,6 @@
 </head>
 
 <body class="antialiased">
-
     {{-- form sidebar --}}
     @if (isset($form) && !$form->isEmpty())
         <x-form>
