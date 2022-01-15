@@ -1,6 +1,9 @@
 @props(['product'])
 
-<div class="w-full md:w-1/2 lg:w-1/3 xl:w-1/4 py-3 px-2">
+<div
+    x-data
+    class="w-full md:w-1/2 lg:w-1/3 xl:w-1/4 py-3 px-2"
+>
     <div class="bg-white rounded-lg shadow-lg p-8">
         <h2 class="font-bold text-xl">{{ $product->name }}</h2>
 
@@ -10,12 +13,12 @@
 
         <div class="flex justify-between items-center">
             <div>
-                <a
-                    href="#"
+                <button
                     class="block text-blue-500 hover:text-blue-700"
+                    @click.prevent="$dispatch('toggle-form', {{ json_encode($product) }})"
                 >
                     View/Edit
-                </a>
+                </button>
             </div>
             <div>
                 <h3 class="font-bold text-green-700 text-lg">$ {{ $product->price }}</h3>

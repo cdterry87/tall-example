@@ -2,8 +2,10 @@
     x-cloak
     x-data="{
         isFormHidden: true,
+        data: {}
     }"
     @toggle-form.window="
+        data = $event.detail
         isFormHidden = !isFormHidden
     "
     @keydown.window.escape="isFormHidden = true"

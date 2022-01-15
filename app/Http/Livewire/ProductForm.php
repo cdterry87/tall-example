@@ -7,7 +7,7 @@ use Livewire\Component;
 
 class ProductForm extends Component
 {
-    public $name, $description, $price;
+    public $product_id, $name, $description, $price;
 
     public $rules = [
         'name' => 'required|min:3',
@@ -19,11 +19,14 @@ class ProductForm extends Component
     {
         $this->validate();
 
-        Product::create([
-            'name' => $this->name,
-            'description' => $this->description,
-            'price' => $this->price,
-        ]);
+        Product::updateOrCreate(
+            ['id' => $this->product_id],
+            [
+                'name' => $this->name,
+                'description' => $this->description,
+                'price' => $this->price,
+            ]
+        );
 
         session()->flash('success_message', 'Product saved successfully!');
         $this->reset();

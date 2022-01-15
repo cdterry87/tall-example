@@ -2,6 +2,12 @@
     wire:submit.prevent="saveProduct"
     class="flex flex-col gap-4"
 >
+    <input
+        type="hidden"
+        name="id"
+        wire:model.defer="product_id"
+        x-model="data.id"
+    />
     <div class="flex flex-col sm:flex-row items-center sm:justify-between gap-2 sm:gap-4">
         <div>
             <h1 class="text-2xl font-bold">Product</h1>
@@ -30,6 +36,7 @@
             <div class="w-full sm:w-64">
                 <x-text
                     wire:model.defer="name"
+                    x-model="data.name"
                     name="name"
                     full-width
                 />
@@ -45,6 +52,7 @@
             <div class="w-full sm:w-64">
                 <x-textarea
                     wire:model.defer="description"
+                    x-model="data.description"
                     name="description"
                     full-width
                 />
@@ -60,6 +68,7 @@
             <div class="w-full sm:w-64">
                 <x-text
                     wire:model.defer="price"
+                    x-model="data.price"
                     name="price"
                     full-width
                 />
