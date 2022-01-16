@@ -20,8 +20,6 @@ class Products extends Component
 
     public function showForm()
     {
-        $this->resetForm();
-        $this->resetValidation();
         $this->isFormShown = true;
     }
 
@@ -39,7 +37,7 @@ class Products extends Component
         $this->price = '';
     }
 
-    public function store()
+    public function saveProduct()
     {
         $this->validate([
             'name' => 'required',
@@ -56,7 +54,6 @@ class Products extends Component
         session()->flash('message', $this->product_id ? 'Product updated successfully.' : 'Product created successfully.');
 
         $this->hideForm();
-        $this->resetForm();
     }
 
     public function edit($id)

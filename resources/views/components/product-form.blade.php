@@ -1,5 +1,5 @@
 <form
-    wire:submit.prevent="store"
+    wire:submit.prevent="saveProduct"
     class="flex flex-col gap-4"
 >
     <input
