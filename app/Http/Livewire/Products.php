@@ -2,8 +2,9 @@
 
 namespace App\Http\Livewire;
 
-use Livewire\Component;
 use App\Models\Product;
+use Livewire\Component;
+use Illuminate\Support\Facades\Session;
 
 class Products extends Component
 {
@@ -17,19 +18,17 @@ class Products extends Component
         return view('livewire.products');
     }
 
-    public function create()
-    {
-        $this->resetForm();
-        $this->showForm();
-    }
-
     public function showForm()
     {
+        $this->resetForm();
+        $this->resetValidation();
         $this->isFormShown = true;
     }
 
     public function hideForm()
     {
+        $this->resetForm();
+        $this->resetValidation();
         $this->isFormShown = false;
     }
 
