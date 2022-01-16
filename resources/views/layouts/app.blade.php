@@ -26,19 +26,9 @@
 </head>
 
 <body class="antialiased">
-    {{-- form sidebar --}}
-    @if (isset($form) && !$form->isEmpty())
-        <x-form>
-            {{ $form }}
-        </x-form>
-    @endif
-    {{-- end form sidebar --}}
-
-    {{-- main content --}}
     <div class="bg-gray-100 h-screen p-8 overflow-y-auto">
         {{ $slot }}
     </div>
-    {{-- end main content --}}
 
     @livewireScripts
 </body>
