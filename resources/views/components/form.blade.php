@@ -16,8 +16,9 @@
         x-transition:leave-end="translate-x-full"
         class="bg-white h-screen overflow-y-auto w-full md:w-2/3 xl:w-1/2 absolute top-0 right-0 transform duration-200 ease-in-out z-50 border-l border-ra-gray-2 shadow-xl p-10"
         @click.away="
-        isFormShown = false
-    "
+            isFormShown = false
+            $wire.hideForm()
+        "
     >
         {{ $slot }}
     </div>
