@@ -19,9 +19,15 @@
         />
     </div>
 
-    <x-message />
+    <div class="my-6">
+        <x-message />
 
-    <div class="mt-6">
+        @if ($isDeleteModalShown)
+            <x-delete-modal />
+        @endif
+    </div>
+
+    <div>
         <div class="flex flex-col sm:flex-row flex-wrap -m-3">
             @forelse($products as $product)
                 <x-product :product="$product" />

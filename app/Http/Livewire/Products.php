@@ -10,7 +10,8 @@ class Products extends Component
 {
     public $products;
     public $name, $description, $price, $product_id;
-    public $isFormShown = 0;
+    public $isFormShown = false;
+    public $isDeleteModalShown = false;
 
     public function render()
     {
@@ -67,9 +68,23 @@ class Products extends Component
         $this->showForm();
     }
 
-    public function delete($id)
+    public function deleteConfirmation($id)
     {
-        Product::find($id)->delete();
+        $this->product_id = $id;
+        $this->isDeleteModalShown = true;
+    }
+
+    public function deleteCancellation()
+    {
+        $this->product_id = null;
+        $this->isDeleteModalShown = false;
+    }
+
+    public function delete()
+    {
+        Product::find($this->product_id)->delete();
         session()->flash('message', 'Product deleted successfully.');
+
+        $this->deleteCancellation();
     }
 }
