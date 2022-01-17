@@ -2,7 +2,7 @@
 
 <div
     x-data
-    class="w-full md:w-1/2 lg:w-1/3 xl:w-1/4 p-3"
+    class="w-full md:w-1/2 lg:w-1/3 p-3"
 >
     <div class="bg-white shadow-lg p-8 relative">
         <div class="absolute top-2 right-4">

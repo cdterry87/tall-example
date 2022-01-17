@@ -4,19 +4,24 @@ namespace App\Http\Livewire;
 
 use App\Models\Product;
 use Livewire\Component;
-use Illuminate\Support\Facades\Session;
+use Livewire\WithPagination;
 
 class Products extends Component
 {
-    public $products;
+    use WithPagination;
+
     public $name, $description, $price, $product_id;
     public $isFormShown = false;
     public $isDeleteModalShown = false;
 
     public function render()
     {
-        $this->products = Product::all();
-        return view('livewire.products');
+        return view(
+            'livewire.products',
+            [
+                'products' => Product::paginate(6)
+            ]
+        );
     }
 
     public function showForm()
