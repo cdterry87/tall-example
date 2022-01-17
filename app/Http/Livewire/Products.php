@@ -38,6 +38,7 @@ class Products extends Component
 
     private function resetForm()
     {
+        $this->product_id = null;
         $this->name = '';
         $this->description = '';
         $this->price = '';
