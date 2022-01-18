@@ -1,11 +1,8 @@
 <div>
-    {{-- form obfuscation --}}
     <div
         x-show="isFormShown"
         class="opacity-50 fixed top-0 left-0 z-40 w-screen h-screen bg-black overflow-hidden"
     ></div>
-
-    {{-- form container --}}
     <div
         x-show="isFormShown"
         x-transition:enter="transition ease-out duration-300"

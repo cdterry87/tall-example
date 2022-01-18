@@ -38,6 +38,6 @@
     </div>
 
     <div class="mt-6">
-        {{ $products->links() }}
+        {{ $products->links('layouts.pagination') }}
     </div>
 </div>
