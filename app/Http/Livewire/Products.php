@@ -10,8 +10,11 @@ class Products extends Component
 {
     use WithPagination;
 
+    protected $listeners = ['search'];
+
     public $name, $description, $price, $product_id;
     public $isFormShown = false;
+    public $search;
     public $isDeleteModalShown = false;
 
     public function render()
@@ -19,9 +22,19 @@ class Products extends Component
         return view(
             'livewire.products',
             [
-                'products' => Product::paginate(2)
+                'products' => Product::query()
+                    ->when($this->search, function ($query) {
+                        return $query->where('name', 'like', "%{$this->search}%");
+                    })
+                    ->paginate(6)
             ]
         );
+    }
+
+    public function search($term)
+    {
+        $this->search = $term;
+        $this->resetPage();
     }
 
     public function showForm()

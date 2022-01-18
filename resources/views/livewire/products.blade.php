@@ -9,14 +9,23 @@
         </x-form>
     </div>
 
-    <div class="flex items-center gap-4">
-        <h1 class="block font-bold text-3xl">Products</h1>
-        <x-button
-            label="Create Product"
-            color="bg-blue-600"
-            text-color="text-white"
-            wire:click="showForm"
-        />
+    <div class="flex items-center justify-between gap-4">
+        <div class="flex items-center gap-4">
+            <h1 class="block font-bold text-3xl">Products</h1>
+            <x-button
+                label="Create Product"
+                color="bg-blue-600"
+                text-color="text-white"
+                wire:click="showForm"
+            />
+        </div>
+        <div>
+            <x-text
+                type="search"
+                placeholder="Search for a product..."
+                wire:model.debounce.500ms="search"
+            />
+        </div>
     </div>
 
     <div class="my-6">
