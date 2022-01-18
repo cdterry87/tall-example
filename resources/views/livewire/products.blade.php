@@ -9,7 +9,7 @@
         </x-form>
     </div>
 
-    <div class="flex flex-col sm:flex-row items-center justify-between gap-4">
+    <div class="flex flex-col md:flex-row items-center justify-between gap-4">
         <div class="flex items-center gap-4">
             <h1 class="block font-bold text-3xl">Products</h1>
             <x-button
@@ -19,9 +19,18 @@
                 wire:click="showForm"
             />
         </div>
-        <div>
+        <div class="flex items-center gap-4">
+            <x-select
+                label="Show"
+                wire:model="showing"
+            >
+                <option value="6">6</option>
+                <option value="12">12</option>
+                <option value="18">18</option>
+            </x-select>
             <x-text
                 type="search"
+                size="20"
                 placeholder="Search for a product..."
                 wire:model.debounce.500ms="search"
             />

@@ -15,6 +15,7 @@ class Products extends Component
     public $name, $description, $price, $product_id;
     public $isFormShown = false;
     public $search;
+    public $showing = 6;
     public $isDeleteModalShown = false;
 
     public function render()
@@ -26,7 +27,7 @@ class Products extends Component
                     ->when($this->search, function ($query) {
                         return $query->where('name', 'like', "%{$this->search}%");
                     })
-                    ->paginate(6)
+                    ->paginate($this->showing)
             ]
         );
     }
